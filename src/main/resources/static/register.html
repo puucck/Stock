@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/1.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>注册界面</title>
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link type="text/css" rel="stylesheet" charset="UTF-8" href="https://translate.googleapis.com/translate_static/css/translateelement.css">
+    <!--    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>-->
+</head>
+<body>
+<div class="login ">
+    <form action="/hello2" method="post">
+    <h1>注册</h1>
+    <div class="form-group">
+        <label for="exampleInputEmail1">电子邮箱</label>
+        <span id="emailInfo"></span>
+        <label for="exampleInputEmail1" id="emailMark"></label>
+        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" name="email" onblur="f()" class="email">
+    </div>
+    <div class="form-group">
+        <label for="username">用户名</label>
+        <span id="usernameInfo"></span>
+        <input type="text" class="form-control"  placeholder="Username" name="username" id="username" onblur="b()">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">密码</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password:6-18" onblur="" name="pwd">
+    </div>
+
+    <button type="submit" class="btn btn-success" id="enter">确认</button>
+        <input type="text" id="">
+    </form>
+    <script type="text/javascript">
+        function f() {
+            var str=$("#exampleInputEmail1").val();
+            console.log("email=="+str);
+            $.ajax({
+                url:"/forward",
+                type:"get",
+                data:{"email":$("#exampleInputEmail1").val()},
+                success:function (data) {
+                    console.log(data);
+                    if(data.toString()=="ok"){
+                        $("#emailInfo").css("color","green");
+                    }else{
+                        $("#emailInfo").css("color","red");
+                    }
+                    $("#emailInfo").html(data);
+                }
+            })
+        }
+        function b() {
+
+            $.ajax({
+                url:"/forward",
+                type:"get",
+                data:{"username":$("#username").val()},
+                success:function (data) {
+                    console.log(data);
+                    if(data.toString()=="ok"){
+                        $("#usernameInfo").css("color","green");
+                    }else{
+                        $("#usernameInfo").css("color","red");
+                    }
+                    $("#usernameInfo").html(data);
+                }
+            })
+        }
+    </script>
+</div>
+</body>
+</html>

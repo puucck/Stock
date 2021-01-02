@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <title>Hello, Bootstrap Table!</title>
+</head>
+<body>
+<button  class="button"  οnclick="addrow();">添加一行</button>
+<table  class="table">
+    <tr><th>姓名</th><th>年龄</th><th>性别</th></tr>
+</table>
+<script type="text/javascript">
+
+    function addrow(){
+        var tables = $('.table');
+
+        var addtr = $("<tr>"+
+            "<td><input type='text' name='name' /></td>"+
+            "<td><input type='text' name='age' /></td>"+
+            "<td><input type='text' name='sex' /></td>"+
+            "<td><span  οnclick='deleteTrRow(this);'>&nbsp;删除</span></td>"+
+            "</tr>");
+        addtr.append(tables);
+
+    }
+
+    function deleteTrRow(tr){
+        //多一个parent就代表向前一个标签,
+        //本删除范围为<td><tr>两个标签,即向前两个parent
+        //如果多一个parent就会删除整个table
+        $(tr).parent().parent().remove();
+    }
+</script>
+</body>
+</html>

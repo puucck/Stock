@@ -1,0 +1,35 @@
+.login{
+    margin-top:150px;
+    margin-left: 500px;
+    width: 500px;
+    height: 500px;
+}
+.login h1{
+    margin-left: 50px;
+    display: inline-block;
+}
+/*-------------------------------------*/
+/*homePage*/
+/*.btn{*/
+/*    width: 500px;*/
+/*}*/
+.table_div{
+    /*background-color: red;*/
+    margin-left: 260px;
+    height: 500px;
+    box-sizing: content-box;
+    width: 1000px;
+}
+.Mark{
+    margin-left: 370px;
+}
+.Pagination{
+    position: absolute;
+    bottom: 0px;
+    left: 600px;
+}
+/*-------------------*/
+.add_inbound{
+    position: absolute;
+    bottom: 50px;
+}

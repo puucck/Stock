@@ -1,0 +1,11 @@
+.login{
+    margin-top:150px;
+    margin-left: 500px;
+    width: 500px;
+    height: 500px;
+}
+.Pagination{
+    position: absolute;
+    bottom: 0px;
+    left: 600px;
+}
